@@ -19,6 +19,7 @@
     "babel-preset-es2015": "^6.9.0"
   },
   "dependencies": {
+    "classnames": "^2.2.5",
     "ramda": "^0.21.0"
   }
 }
