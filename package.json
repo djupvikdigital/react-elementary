@@ -1,0 +1,15 @@
+{
+  "name": "react-elementary",
+  "version": "1.0.0",
+  "description": "Helper functions for React element creation and props merging.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "react",
+    "utils"
+  ],
+  "author": "Reidar Djupvik <mail@3rdhand.info> (https://3rdhand.info/)",
+  "license": "MIT"
+}
