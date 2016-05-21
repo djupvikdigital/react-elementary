@@ -11,5 +11,8 @@
     "utils"
   ],
   "author": "Reidar Djupvik <mail@3rdhand.info> (https://3rdhand.info/)",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "babel-cli": "^6.9.0"
+  }
 }
