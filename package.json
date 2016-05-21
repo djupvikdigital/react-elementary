@@ -15,5 +15,8 @@
   "devDependencies": {
     "babel-cli": "^6.9.0",
     "babel-preset-es2015": "^6.9.0"
+  },
+  "dependencies": {
+    "ramda": "^0.21.0"
   }
 }
