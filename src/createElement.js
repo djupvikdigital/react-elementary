@@ -9,7 +9,7 @@ export default function createElement(type, propsOrNode, ...nodes) {
   if (isNode(propsOrNode)) {
     args = [type, {}, propsOrNode, ...nodes];
   }
-  else if (typeof propsOrNode != 'undefined') {
+  else if (propsOrNode != null) {
     args = [type, transformProps(propsOrNode), ...nodes];
   }
   return React.createElement.apply(null, args || arguments);
