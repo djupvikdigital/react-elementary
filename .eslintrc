@@ -5,6 +5,7 @@
   },
   "rules": {
     "brace-style": [2, "stroustrup"],
-    "eqeqeq": [2, "smart"]
+    "eqeqeq": [2, "smart"],
+    "prefer-rest-params": 0
   }
 }
