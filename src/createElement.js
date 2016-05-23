@@ -4,10 +4,6 @@ import transformProps from './transformProps';
 
 const isNode = input => typeof input == 'string' || React.isValidElement(input);
 
-const isProps = input => (
-  input !== null && typeof input === 'object' && !React.isValidElement(input)
-);
-
 export default function createElement(type, propsOrNode, ...nodes) {
   let args;
   if (isNode(propsOrNode)) {
