@@ -1,6 +1,6 @@
 import React from 'react';
 
-import transformProps from './transformProps';
+import propsMapper from './propsMapper';
 
 const isNode = input => typeof input == 'string' || React.isValidElement(input);
 
@@ -10,7 +10,7 @@ export default function createElement(type, propsOrNode, ...nodes) {
     args = [type, {}, propsOrNode, ...nodes];
   }
   else if (propsOrNode != null) {
-    args = [type, transformProps(propsOrNode), ...nodes];
+    args = [type, propsMapper(propsOrNode), ...nodes];
   }
   return React.createElement.apply(null, args || arguments);
 }

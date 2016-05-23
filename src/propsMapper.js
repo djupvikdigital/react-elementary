@@ -1,6 +1,6 @@
 import { assoc, lens, omit, over, pipe, prop } from 'ramda';
 
-export default function transformProps(props) {
+export default function propsMapper(props) {
   const innerHtmlLens = lens(
     prop('innerHtml'),
     pipe(assoc('dangerouslySetInnerHtml'), omit('innerHtml'))

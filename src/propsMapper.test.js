@@ -1,11 +1,11 @@
 import expect from 'expect';
 
-import transformProps from './transformProps';
+import propsMapper from './propsMapper';
 
-describe('transformProps', () => {
+describe('propsMapper', () => {
   it('changes innerHtml prop to dangerouslySetInnerHtml', () => {
     const expected = { dangerouslySetInnerHtml: { __html: '<p>Test</p>'}};
-    const actual = transformProps({ innerHtml: '<p>Test</p>' });
+    const actual = propsMapper({ innerHtml: '<p>Test</p>' });
     expect(actual).toEqual(expected);
   });
 });

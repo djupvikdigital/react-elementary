@@ -4,7 +4,7 @@ import createFactory from './createFactory';
 import elements from './elements';
 import mapIntoArray from './mapIntoArray';
 import mergeProps from './mergeProps';
-import transformProps from './transformProps';
+import propsMapper from './propsMapper';
 
 export default {
   createElement,
@@ -13,5 +13,5 @@ export default {
   elements,
   mapIntoArray,
   mergeProps,
-  transformProps
+  propsMapper
 };
