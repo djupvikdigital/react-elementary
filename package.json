@@ -5,7 +5,6 @@
   "main": "index.js",
   "scripts": {
     "build": "babel -d lib/ src/",
-    "start": "babel-node index.js",
     "test": "mocha --compilers js:babel-register \"src/**/*.test.js\""
   },
   "keywords": [
