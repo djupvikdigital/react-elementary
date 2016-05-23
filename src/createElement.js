@@ -2,13 +2,19 @@ import React from 'react';
 
 import transformProps from './transformProps';
 
+const isNode = input => typeof input == 'string' || React.isValidElement(input);
+
 const isProps = input => (
   input !== null && typeof input === 'object' && !React.isValidElement(input)
 );
 
 export default function createElement(type, propsOrNode, ...nodes) {
-  const args = isProps(propsOrNode) ?
-    [type, transformProps(propsOrNode), ...nodes] :
-    [type, {}, propsOrNode, ...nodes];
-  return React.createElement.apply(null, args);
+  let args;
+  if (isNode(propsOrNode)) {
+    args = [type, {}, propsOrNode, ...nodes];
+  }
+  else if (typeof propsOrNode != 'undefined') {
+    args = [type, transformProps(propsOrNode), ...nodes];
+  }
+  return React.createElement.apply(null, args || arguments);
 }
