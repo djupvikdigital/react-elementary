@@ -4,6 +4,7 @@
     "mocha": true
   },
   "rules": {
+    "brace-style": [2, "stroustrup"],
     "eqeqeq": [2, "smart"]
   }
 }
