@@ -12,13 +12,13 @@ describe('createFactories', () => {
     () => {
       const expected = {
         div: React.createFactory('div')(),
-        span: React.createFactory('span')()
+        span: React.createFactory('span')(),
       };
       const actual = map(call, createFactories({
         div: 'div',
-        span: 'span'
+        span: 'span',
       }));
       expect(actual).toEqual(expected);
     }
-  )
+  );
 });

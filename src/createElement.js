@@ -14,7 +14,7 @@ export function mapProps(mapper) {
       args = [type, mapper(propsOrNode), ...nodes];
     }
     return React.createElement.apply(null, args || arguments);
-  }
+  };
 }
 
 export default mapProps(propsMapper);

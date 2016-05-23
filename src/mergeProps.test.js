@@ -9,9 +9,9 @@ describe('mergeProps', () => {
     const expected = {
       x: 'foo',
       y: 'bar',
-      z: 'baz'
+      z: 'baz',
     };
-    const actual = mergeProps({ x: 'foo', z: 'quux' }, { y : 'bar', z: 'baz' });
+    const actual = mergeProps({ x: 'foo', z: 'quux' }, { y: 'bar', z: 'baz' });
     expect(actual).toEqual(expected);
   });
 

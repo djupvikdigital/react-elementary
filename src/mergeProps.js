@@ -2,7 +2,7 @@ import classNames from 'classnames/dedupe';
 import { mergeWithKey } from 'ramda';
 
 const specialMerges = {
-  className: classNames
+  className: classNames,
 };
 
 function mergeCustomizer(key, ...values) {

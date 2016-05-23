@@ -13,5 +13,5 @@ export default {
   elements,
   mapIntoArray,
   mergeProps,
-  propsMapper
+  propsMapper,
 };
