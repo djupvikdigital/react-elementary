@@ -7,8 +7,8 @@ import createFactories from './createFactories';
 
 describe('createFactories', () => {
   it(
-    'takes an object of ReactClasses/strings and returns an object of' +
-      'element factories',
+    `takes an object of ReactClasses/strings and returns an object of element
+      factories`,
     () => {
       const expected = {
         div: React.createFactory('div')(),
