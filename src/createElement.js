@@ -4,7 +4,7 @@ import propsMapper from './propsMapper';
 
 const isNode = input => typeof input == 'string' || React.isValidElement(input);
 
-export function mapProps(mapper) {
+export function mapElementPropsWith(mapper) {
   return function createElement(type, propsOrNode, ...nodes) {
     let args;
     if (isNode(propsOrNode)) {
@@ -17,4 +17,4 @@ export function mapProps(mapper) {
   };
 }
 
-export default mapProps(propsMapper);
+export default mapElementPropsWith(propsMapper);

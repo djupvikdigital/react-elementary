@@ -3,7 +3,7 @@ import expect from 'expect';
 import { map, toUpper } from 'ramda';
 import React from 'react';
 
-import createElement, { mapProps } from './createElement';
+import createElement, { mapElementPropsWith } from './createElement';
 
 describe('createElement', () => {
   it('supports omitting props', () => {
@@ -21,9 +21,9 @@ describe('createElement', () => {
   });
 });
 
-describe('mapProps', () => {
+describe('mapElementPropsWith', () => {
   it('takes a props mapper, and returns a createElement function', () => {
-    const fn = mapProps(map(toUpper));
+    const fn = mapElementPropsWith(map(toUpper));
     const expected = React.createElement(
       'div', { className: 'BAR', id: 'FOO' }
     );
