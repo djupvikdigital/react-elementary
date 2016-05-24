@@ -12,4 +12,6 @@ function mergeCustomizer(key, ...values) {
   return values[values.length - 1];
 }
 
-export default mergeWithKey(mergeCustomizer);
+export default function mergeProps(...objs) {
+  return objs.reduce(mergeWithKey(mergeCustomizer));
+}

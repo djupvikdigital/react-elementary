@@ -11,7 +11,11 @@ describe('mergeProps', () => {
       y: 'bar',
       z: 'baz',
     };
-    const actual = mergeProps({ x: 'foo', z: 'quux' }, { y: 'bar', z: 'baz' });
+    const actual = mergeProps(
+      { x: 'foo', z: 'quux' },
+      { z: 'baz' },
+      { y: 'bar' }
+    );
     expect(actual).toEqual(expected);
   });
 
