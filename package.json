@@ -1,11 +1,16 @@
 {
   "name": "react-elementary",
   "version": "1.0.0",
-  "description": "Helper functions for React element creation and props merging.",
-  "main": "index.js",
+  "description": "Helper functions for React elements and props.",
+  "main": "lib/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/thirdhand/react-elementary.git"
+  },
   "scripts": {
     "build": "babel -d lib/ src/",
     "lint": "eslint src/",
+    "prepublish": "npm run build",
     "test": "npm run lint && mocha --compilers js:babel-register \"src/**/*.test.js\""
   },
   "keywords": [
