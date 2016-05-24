@@ -2,7 +2,7 @@ import expect from 'expect';
 
 import classNames from 'classnames/dedupe';
 
-import mergeProps from './mergeProps';
+import mergeProps, { createCustomMerge } from './mergeProps';
 
 describe('mergeProps', () => {
   it('merges props objects, values in latter object overriding former', () => {
@@ -24,4 +24,21 @@ describe('mergeProps', () => {
     const actual = mergeProps({ className: 'foo' }, { className: 'bar' });
     expect(actual).toEqual(expected);
   });
+});
+
+describe('createCustomMerge', () => {
+  it(
+    `takes a map of reducers, and returns a merge function that applies the
+      reducers to the named props, otherwise does a normal merge`,
+    () => {
+      const customReducer = (...args) => args.join(' ');
+      const customMerge = createCustomMerge({ custom: customReducer });
+      const expected = { custom: 'foo baz', normal: 'quux' };
+      const actual = customMerge(
+        { custom: 'foo', normal: 'bar' },
+        { custom: 'baz', normal: 'quux' }
+      );
+      expect(actual).toEqual(expected);
+    }
+  );
 });

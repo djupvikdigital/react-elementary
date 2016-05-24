@@ -1,17 +1,21 @@
 import classNames from 'classnames/dedupe';
 import { mergeWithKey } from 'ramda';
 
-const specialMerges = {
-  className: classNames,
-};
-
-function mergeCustomizer(key, ...values) {
-  if (typeof specialMerges[key] === 'function') {
-    return specialMerges[key].apply(this, values);
-  }
-  return values[values.length - 1];
+function customizeMerges(reducers) {
+  return function mergeCustomizer(key, ...values) {
+    const reducer = reducers[key];
+    if (typeof reducer === 'function') {
+      return reducer(...values);
+    }
+    return values[values.length - 1];
+  };
 }
 
-export default function mergeProps(...objs) {
-  return objs.reduce(mergeWithKey(mergeCustomizer));
+export function createCustomMerge(reducers) {
+  const mergeCustomizer = customizeMerges(reducers);
+  return function mergeProps(...objs) {
+    return objs.reduce(mergeWithKey(mergeCustomizer));
+  };
 }
+
+export default createCustomMerge({ className: classNames });
