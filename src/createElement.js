@@ -1,3 +1,4 @@
+import { flatten } from 'ramda';
 import React from 'react';
 
 import propsMapper from './propsMapper';
@@ -5,15 +6,18 @@ import propsMapper from './propsMapper';
 const isNode = input => typeof input == 'string' || React.isValidElement(input);
 
 export function mapElementPropsWith(mapper) {
-  return function createElement(type, propsOrNode, ...nodes) {
-    let args;
+  return function createElement(type) {
+    const propsOrNode = arguments[1];
+    let props = {};
+    let nodeIndex = 2;
     if (isNode(propsOrNode)) {
-      args = [type, {}, propsOrNode, ...nodes];
+      nodeIndex = 1;
     }
-    else if (propsOrNode != null) {
-      args = [type, mapper(propsOrNode), ...nodes];
+    else {
+      props = mapper(propsOrNode);
     }
-    return React.createElement.apply(null, args || arguments);
+    const nodes = flatten(Array.prototype.slice.call(arguments, nodeIndex));
+    return React.createElement(type, props, nodes);
   };
 }
 
