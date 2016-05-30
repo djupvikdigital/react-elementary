@@ -8,4 +8,12 @@ describe('propsMapper', () => {
     const actual = propsMapper({ innerHtml: '<p>Test</p>' });
     expect(actual).toEqual(expected);
   });
+
+  it(
+    'does not insert dangerouslySetInnerHtml if innerHtml is undefined',
+    () => {
+      const expected = { foo: 'bar' };
+      const actual = propsMapper({ foo: 'bar' });
+      expect(actual).toEqual(expected);
+    });
 });
