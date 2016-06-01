@@ -1,4 +1,4 @@
-/** @module */
+/** @module react-elementary/elements */
 
 import { mapObjIndexed } from 'ramda';
 import { DOM } from 'react';

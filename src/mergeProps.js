@@ -1,4 +1,4 @@
-/** @module */
+/** @module react-elementary/mergeProps */
 
 import classNames from 'classnames/dedupe';
 import { mergeWithKey } from 'ramda';
