@@ -1,3 +1,5 @@
+/** @module */
+
 import classNames from 'classnames/dedupe';
 import { mergeWithKey } from 'ramda';
 
@@ -11,6 +13,12 @@ function customizeMerges(reducers) {
   };
 }
 
+/**
+ * Takes a map of reducer function and returns a merge function.
+ * @param  {object.<function>} reducers - a map of keys to functions
+ * @return {function}                   - merges the props of a number of
+ *                                        objects
+ */
 export function createCustomMerge(reducers) {
   const mergeCustomizer = customizeMerges(reducers);
   return function mergeProps(...objs) {
@@ -18,4 +26,11 @@ export function createCustomMerge(reducers) {
   };
 }
 
+/**
+ * Merges a number of objects, applying the classnames library to the className
+ * prop.
+ * @function
+ * @param  {...object} objs - the objects to be merged
+ * @return {object}         - the result of the merge
+ */
 export default createCustomMerge({ className: classNames });
