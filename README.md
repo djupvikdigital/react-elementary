@@ -28,7 +28,7 @@ elementary.createElement('div', 'Hello world!');
 
 // or
 
-import createElement from 'react-elementary/createElement';
+import createElement from 'react-elementary/lib/createElement';
 
 createElement('div', 'Hello world!');
 ```
@@ -39,7 +39,7 @@ Use this function just like `React.createElement`, except that props are
 optional. Also, the `innerHtml` prop is rewritten into
 `dangerouslySetInnerHtml`. You can also create a custom `createElement` which
 does other props mappings by using `mapElementPropsWith` from the
-`react-elementary/createElement` module (it's not exported from the index
+`react-elementary/lib/createElement` module (it's not exported from the index
 module).
 
 ```javascript
@@ -131,8 +131,8 @@ function ReactComponent(props) {
 
 Takes any number of objects, and merges them. The default function merges the
 `className` property with the `classnames` module. You can also create a custom
-merge function by using `customizeMerges` from the `react-elementary/mergeProps`
-module.
+merge function by using `createCustomMerge` from the
+`react-elementary/lib/mergeProps` module.
 
 ```javascript
 import { elements, mergeProps } from 'react-elementary';
