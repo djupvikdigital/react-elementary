@@ -1,4 +1,4 @@
-/** @module react-elementary/createElement */
+/** @module react-elementary/lib/createElement */
 
 import React, { isValidElement } from 'react';
 

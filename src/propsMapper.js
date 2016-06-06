@@ -1,4 +1,4 @@
-/** @module react-elementary/propsMapper */
+/** @module react-elementary/lib/propsMapper */
 
 import { assoc, has, lens, omit, over, pipe, prop, when } from 'ramda';
 

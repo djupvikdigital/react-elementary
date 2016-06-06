@@ -1,4 +1,4 @@
-/** @module react-elementary/createFactories */
+/** @module react-elementary/lib/createFactories */
 
 import { map } from 'ramda';
 

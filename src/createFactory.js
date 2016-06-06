@@ -1,4 +1,4 @@
-/** @module react-elementary/createFactory */
+/** @module react-elementary/lib/createFactory */
 
 import createElement from './createElement';
 

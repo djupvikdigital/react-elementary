@@ -1,4 +1,4 @@
-/** @module react-elementary/mapIntoArray */
+/** @module react-elementary/lib/mapIntoArray */
 
 import { into, map } from 'ramda';
 
