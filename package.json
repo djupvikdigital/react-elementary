@@ -1,6 +1,6 @@
 {
   "name": "react-elementary",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Helper functions for React elements and props.",
   "main": "lib/index.js",
   "repository": {
