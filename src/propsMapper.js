@@ -14,7 +14,7 @@ export default when(
   over(
     lens(
       prop('innerHtml'),
-      pipe(assoc('dangerouslySetInnerHtml'), omit('innerHtml'))
+      pipe(assoc('dangerouslySetInnerHTML'), omit('innerHtml'))
     ),
     value => ({ __html: value })
   )
