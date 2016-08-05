@@ -110,6 +110,9 @@ function ReactComponent(props) {
 Takes an iterable collection (like `Immutable.List`), and a mapping function,
 returning an array.
 
+*This is deprecated and will be removed in a later version.* It's not really
+needed since React can handle non-array iterables.
+
 ```javascript
 import { createFactory, elements, mapIntoArray } from 'react-elementary';
 
