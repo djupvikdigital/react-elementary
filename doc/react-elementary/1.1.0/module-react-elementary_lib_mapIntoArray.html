@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Module: react-elementary/lib/mergeProps</title>
+    <title>JSDoc: Module: react-elementary/lib/mapIntoArray</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Module: react-elementary/lib/mergeProps</h1>
+    <h1 class="page-title">Module: react-elementary/lib/mapIntoArray</h1>
 
     
 
@@ -44,15 +44,14 @@
 
     
 
-    <h4 class="name" id="module:react-elementary/lib/mergeProps"><span class="type-signature"></span>(require("react-elementary/lib/mergeProps"))<span class="signature">(&hellip;objs)</span><span class="type-signature"> &rarr; {object}</span></h4>
+    <h4 class="name" id="module:react-elementary/lib/mapIntoArray"><span class="type-signature"></span>(require("react-elementary/lib/mapIntoArray"))<span class="signature">(collection, fn)</span><span class="type-signature"> &rarr; {Array}</span></h4>
 
     
 
 
 
 <div class="description">
-    Merges a number of objects, applying the classnames library to the className
-prop.
+    A function that maps an iterable into an array.
 </div>
 
 
@@ -76,8 +75,6 @@ prop.
         <th>Type</th>
 
         
-        <th>Attributes</th>
-        
 
         
 
@@ -90,33 +87,46 @@ prop.
 
         <tr>
             
-                <td class="name"><code>objs</code></td>
+                <td class="name"><code>collection</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">object</span>
+<span class="param-type">iterable</span>
 
 
             
             </td>
 
             
-                <td class="attributes">
-                
 
-                
+            
 
+            <td class="description last">the collection to be mapped over</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>fn</code></td>
+            
+
+            <td class="type">
+            
                 
-                    &lt;repeatable><br>
-                
-                </td>
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
             
 
             
 
-            <td class="description last">the objects to be merged</td>
+            <td class="description last">a mapper function</td>
         </tr>
 
     
@@ -145,6 +155,8 @@ prop.
     
 
     
+        <dt class="important tag-deprecated">Deprecated:</dt><dd><ul class="dummy"><li>since version 1.1; will be removed in later release</li></ul></dd>
+    
 
     
 
@@ -157,7 +169,7 @@ prop.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="mergeProps.js.html">mergeProps.js</a>, <a href="mergeProps.js.html#line36">line 36</a>
+        <a href="mapIntoArray.js.html">mapIntoArray.js</a>, <a href="mapIntoArray.js.html#line12">line 12</a>
     </li></ul></dd>
     
 
@@ -183,10 +195,6 @@ prop.
 <h5>Returns:</h5>
 
         
-<div class="param-desc">
-    - the result of the merge
-</div>
-
 
 
 <dl>
@@ -195,7 +203,7 @@ prop.
     </dt>
     <dd>
         
-<span class="param-type">object</span>
+<span class="param-type">Array</span>
 
 
     </dd>
@@ -222,164 +230,6 @@ prop.
     
 
     
-        <h3 class="subsection-title">Methods</h3>
-
-        
-            
-
-    
-
-    <h4 class="name" id=".createCustomMerge"><span class="type-signature">(static) </span>createCustomMerge<span class="signature">(reducers)</span><span class="type-signature"> &rarr; {function}</span></h4>
-
-    
-
-
-
-<div class="description">
-    Takes a map of reducer function and returns a merge function.
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>reducers</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">object.&lt;function()></span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">a map of keys to functions</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="mergeProps.js.html">mergeProps.js</a>, <a href="mergeProps.js.html#line22">line 22</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-<div class="param-desc">
-    - merges the props of a number of
-                                       objects
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">function</span>
-
-
-    </dd>
-</dl>
-
-    
-
-
-
-        
-    
 
     
 
@@ -400,7 +250,7 @@ prop.
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Mon Jun 06 2016 14:14:46 GMT+0100 (WEST)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Fri Aug 05 2016 18:39:51 GMT+0100 (WEST)
 </footer>
 
 <script> prettyPrint(); </script>
