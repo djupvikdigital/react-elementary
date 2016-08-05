@@ -18,8 +18,8 @@ describe('createElement', () => {
   });
 
   it('handles undefined props properly', () => {
-    const expected = React.createElement('div', void 0);
-    const actual = createElement('div', void 0);
+    const expected = React.createElement('div', undefined);
+    const actual = createElement('div', undefined);
     expect(actual).toEqual(expected);
   });
 
