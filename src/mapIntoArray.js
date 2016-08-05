@@ -7,5 +7,6 @@ import { into, map } from 'ramda';
  * @param  {iterable}   collection - the collection to be mapped over
  * @param  {Function}   fn         - a mapper function
  * @return {Array}
+ * @deprecated since version 1.1; will be removed in later release
  */
 export default (collection, fn) => into([], map(fn), collection);
