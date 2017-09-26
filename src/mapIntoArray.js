@@ -1,6 +1,6 @@
 /** @module react-elementary/lib/mapIntoArray */
 
-import { into, map } from 'ramda';
+import { into, map } from 'ramda'
 
 /**
  * A function that maps an iterable into an array.
@@ -9,4 +9,4 @@ import { into, map } from 'ramda';
  * @return {Array}
  * @deprecated since version 1.1; will be removed in later release
  */
-export default (collection, fn) => into([], map(fn), collection);
+export default (collection, fn) => into([], map(fn), collection)

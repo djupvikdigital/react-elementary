@@ -1,16 +1,16 @@
 /** @module react-elementary/lib/mergeProps */
 
-import classNames from 'classnames/dedupe';
-import { mergeWithKey } from 'ramda';
+import classNames from 'classnames/dedupe'
+import { mergeWithKey } from 'ramda'
 
 function customizeMerges(reducers) {
   return function mergeCustomizer(key, ...values) {
-    const reducer = reducers[key];
+    const reducer = reducers[key]
     if (typeof reducer === 'function') {
-      return reducer(...values);
+      return reducer(...values)
     }
-    return values[values.length - 1];
-  };
+    return values[values.length - 1]
+  }
 }
 
 /**
@@ -20,10 +20,10 @@ function customizeMerges(reducers) {
  *                                        objects
  */
 export function createCustomMerge(reducers) {
-  const mergeCustomizer = customizeMerges(reducers);
+  const mergeCustomizer = customizeMerges(reducers)
   return function mergeProps(...objs) {
-    return objs.reduce(mergeWithKey(mergeCustomizer));
-  };
+    return objs.reduce(mergeWithKey(mergeCustomizer))
+  }
 }
 
 /**
@@ -33,4 +33,4 @@ export function createCustomMerge(reducers) {
  * @param  {...object} objs - the objects to be merged
  * @return {object}         - the result of the merge
  */
-export default createCustomMerge({ className: classNames });
+export default createCustomMerge({ className: classNames })

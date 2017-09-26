@@ -1,6 +1,6 @@
 /** @module react-elementary/lib/propsMapper */
 
-import { assoc, has, lens, omit, over, pipe, prop, when } from 'ramda';
+import { assoc, has, lens, omit, over, pipe, prop, when } from 'ramda'
 
 /**
  * Default props mapper, mapping the custom innerHtml prop to the React prop
@@ -14,8 +14,8 @@ export default when(
   over(
     lens(
       prop('innerHtml'),
-      pipe(assoc('dangerouslySetInnerHTML'), omit('innerHtml'))
+      pipe(assoc('dangerouslySetInnerHTML'), omit('innerHtml')),
     ),
-    value => ({ __html: value })
-  )
-);
+    value => ({ __html: value }),
+  ),
+)
