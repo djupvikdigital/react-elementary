@@ -23,6 +23,6 @@ export default when(
       prop('innerHtml'),
       pipe(assoc('dangerouslySetInnerHTML'), omit('innerHtml')),
     ),
-    value => ({ __html: value }),
+    (value: string) => ({ __html: value }),
   ),
 )

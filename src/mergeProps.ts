@@ -3,8 +3,10 @@
 import classNames from 'classnames/dedupe'
 import mergeWithKey from 'ramda/src/mergeWithKey'
 
-function customizeMerges(reducers) {
-  return function mergeCustomizer(key, ...values) {
+type Reducers = { [key: string]: Function }
+
+function customizeMerges(reducers: Reducers) {
+  return function mergeCustomizer(key: string, ...values: any[]) {
     const reducer = reducers[key]
     if (typeof reducer === 'function') {
       return reducer(...values)
@@ -19,9 +21,9 @@ function customizeMerges(reducers) {
  * @return {function}                   - merges the props of a number of
  *                                        objects
  */
-export function createCustomMerge(reducers) {
+export function createCustomMerge(reducers: Reducers) {
   const mergeCustomizer = customizeMerges(reducers)
-  return function mergeProps(...objs) {
+  return function mergeProps(...objs: object[]) {
     return objs.reduce(mergeWithKey(mergeCustomizer))
   }
 }

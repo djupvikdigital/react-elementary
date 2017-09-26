@@ -7,6 +7,6 @@ import createElement from './createElement'
  * @param  {*} ...args - the arguments to bind
  * @return {function}    a createElement function with bound arguments
  */
-export default function createFactory(...args) {
+export default function createFactory(...args: any[]) {
   return createElement.bind(null, ...args)
 }
