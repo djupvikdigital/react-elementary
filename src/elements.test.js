@@ -1,8 +1,6 @@
-/* eslint import/no-extraneous-dependencies: [2, { "devDependencies": true }] */
-
 import expect from 'expect';
 
-import { DOM } from 'react';
+import DOM from 'react-dom-factories';
 
 import elements from './elements';
 

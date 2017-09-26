@@ -1,12 +1,13 @@
-/* eslint import/no-extraneous-dependencies: [2, { "devDependencies": true }] */
-
 import expect from 'expect';
 
 import { map, toUpper } from 'ramda';
 import React from 'react';
-import { shallow } from 'enzyme';
+import { configure, shallow } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
 
 import createElement, { mapElementPropsWith } from './createElement';
+
+configure({ adapter: new Adapter() });
 
 describe('createElement', () => {
   it('supports omitting props', () => {

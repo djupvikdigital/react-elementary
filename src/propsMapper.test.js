@@ -1,5 +1,3 @@
-/* eslint import/no-extraneous-dependencies: [2, { "devDependencies": true }] */
-
 import expect from 'expect';
 
 import propsMapper from './propsMapper';

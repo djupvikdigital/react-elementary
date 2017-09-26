@@ -1,7 +1,7 @@
 /** @module react-elementary/lib/elements */
 
 import { mapObjIndexed } from 'ramda';
-import { DOM } from 'react';
+import DOM from 'react-dom-factories';
 
 import createFactory from './createFactory';
 

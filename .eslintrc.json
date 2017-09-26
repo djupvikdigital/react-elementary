@@ -1,7 +1,11 @@
 {
-  "extends": "airbnb-base",
   "env": {
-    "mocha": true
+    "mocha": true,
+    "es6": true
+  },
+  "extends": "eslint:recommended",
+  "parserOptions": {
+    "sourceType": "module"
   },
   "rules": {
     "brace-style": [2, "stroustrup"],
