@@ -1,6 +1,6 @@
 /** @module react-elementary/lib/createFactories */
 
-import { map } from 'ramda'
+import map from 'ramda/src/map'
 
 import createFactory from './createFactory'
 

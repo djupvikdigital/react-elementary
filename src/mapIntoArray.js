@@ -1,6 +1,7 @@
 /** @module react-elementary/lib/mapIntoArray */
 
-import { into, map } from 'ramda'
+import into from 'ramda/src/into'
+import map from 'ramda/src/map'
 
 /**
  * A function that maps an iterable into an array.

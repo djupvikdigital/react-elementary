@@ -1,7 +1,7 @@
 /** @module react-elementary/lib/mergeProps */
 
 import classNames from 'classnames/dedupe'
-import { mergeWithKey } from 'ramda'
+import mergeWithKey from 'ramda/src/mergeWithKey'
 
 function customizeMerges(reducers) {
   return function mergeCustomizer(key, ...values) {

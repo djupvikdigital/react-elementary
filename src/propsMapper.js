@@ -1,6 +1,13 @@
 /** @module react-elementary/lib/propsMapper */
 
-import { assoc, has, lens, omit, over, pipe, prop, when } from 'ramda'
+import assoc from 'ramda/src/assoc'
+import has from 'ramda/src/has'
+import lens from 'ramda/src/lens'
+import omit from 'ramda/src/omit'
+import over from 'ramda/src/over'
+import pipe from 'ramda/src/pipe'
+import prop from 'ramda/src/prop'
+import when from 'ramda/src/when'
 
 /**
  * Default props mapper, mapping the custom innerHtml prop to the React prop

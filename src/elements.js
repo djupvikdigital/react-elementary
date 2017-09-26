@@ -1,6 +1,6 @@
 /** @module react-elementary/lib/elements */
 
-import { mapObjIndexed } from 'ramda'
+import mapObjIndexed from 'ramda/src/mapObjIndexed'
 import DOM from 'react-dom-factories'
 
 import createFactory from './createFactory'
