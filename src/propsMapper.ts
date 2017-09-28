@@ -2,6 +2,8 @@
 
 import { assoc, has, lens, omit, over, pipe, prop, when } from 'ramda'
 
+export type PropsMapper = (props: object) => object
+
 /**
  * Default props mapper, mapping the custom innerHtml prop to the React prop
  * dangerouslySetInnerHtml.

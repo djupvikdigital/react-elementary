@@ -6,7 +6,7 @@ import {
   isValidElement,
 } from 'react'
 
-import propsMapper from './propsMapper'
+import propsMapper, { PropsMapper } from './propsMapper'
 
 const isNode = (input: string | any[] | ComponentClass) =>
   typeof input === 'string' || Array.isArray(input) || isValidElement(input)
@@ -17,7 +17,7 @@ const isNode = (input: string | any[] | ComponentClass) =>
  * @param  {function} mapper takes a props object and returns a mapped object
  * @return {function}        createElement with props mapper
  */
-export function mapElementPropsWith(mapper: Function) {
+export function mapElementPropsWith(mapper: PropsMapper) {
   return function createElement(type: string | ComponentClass, ...args: any[]) {
     const propsOrNode = args[0]
     let props = {}

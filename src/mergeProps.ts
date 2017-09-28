@@ -3,9 +3,9 @@
 import classNames = require('classnames')
 import { mergeWithKey } from 'ramda'
 
-export type Reducers = { [key: string]: Function }
+export interface IReducers { [key: string]: <T>() => any }
 
-function customizeMerges(reducers: Reducers) {
+function customizeMerges(reducers: IReducers) {
   return function mergeCustomizer(key: string, ...values: any[]) {
     const reducer = reducers[key]
     if (typeof reducer === 'function') {
@@ -21,7 +21,7 @@ function customizeMerges(reducers: Reducers) {
  * @return {function}                   - merges the props of a number of
  *                                        objects
  */
-export function createCustomMerge(reducers: Reducers) {
+export function createCustomMerge(reducers: IReducers) {
   const mergeCustomizer = customizeMerges(reducers)
   return function mergeProps(...objs: object[]) {
     return objs.reduce(mergeWithKey(mergeCustomizer))
