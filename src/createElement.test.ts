@@ -1,9 +1,9 @@
 import expect = require('expect')
 
-import { map, toUpper } from 'ramda'
-import { createElement as reactCreateElement } from 'react'
 import { configure, shallow } from 'enzyme'
 import Adapter = require('enzyme-adapter-react-16')
+import { map, toUpper } from 'ramda'
+import { createElement as reactCreateElement } from 'react'
 
 import createElement, { mapElementPropsWith } from './createElement'
 

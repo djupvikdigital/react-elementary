@@ -1,9 +1,9 @@
 /** @module react-elementary/lib/createElement */
 
 import {
+  ComponentClass,
   createElement as reactCreateElement,
   isValidElement,
-  ComponentClass,
 } from 'react'
 
 import propsMapper from './propsMapper'
