@@ -10,7 +10,7 @@
   "scripts": {
     "build": "tsc",
     "doc": "rm -r doc/ && jsdoc -P ./package.json -R ./README.md -d doc/ -r src/",
-    "lint": "tslint",
+    "lint": "tslint --project tsconfig.json",
     "prepublish": "npm run build",
     "test": "mocha --compilers ts:ts-node/register \"src/**/*.test.ts\""
   },
