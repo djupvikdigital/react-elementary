@@ -3,7 +3,7 @@
 import classNames = require('classnames')
 import { mergeWithKey } from 'ramda'
 
-type Reducers = { [key: string]: Function }
+export type Reducers = { [key: string]: Function }
 
 function customizeMerges(reducers: Reducers) {
   return function mergeCustomizer(key: string, ...values: any[]) {
