@@ -1,7 +1,7 @@
 /** @module react-elementary/lib/mergeProps */
 
-import classNames from 'classnames/dedupe'
-import mergeWithKey from 'ramda/src/mergeWithKey'
+import classNames from 'classnames'
+import { mergeWithKey } from 'ramda'
 
 type Reducers = { [key: string]: Function }
 

@@ -1,6 +1,6 @@
-import expect from 'expect'
+import expect = require('expect')
 
-import classNames from 'classnames/dedupe'
+import classNames = require('classnames')
 
 import mergeProps, { createCustomMerge } from './mergeProps'
 
@@ -29,7 +29,7 @@ describe('mergeProps', () => {
 describe('createCustomMerge', () => {
   it(`takes a map of reducers, and returns a merge function that applies the
       reducers to the named props, otherwise does a normal merge`, () => {
-    const customReducer = (...args) => args.join(' ')
+    const customReducer = (...args: any[]) => args.join(' ')
     const customMerge = createCustomMerge({ custom: customReducer })
     const expected = { custom: 'foo baz', normal: 'quux' }
     const actual = customMerge(

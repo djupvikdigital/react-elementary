@@ -1,6 +1,6 @@
 /** @module react-elementary/lib/createFactories */
 
-import map from 'ramda/src/map'
+import { map } from 'ramda'
 
 import createFactory from './createFactory'
 
@@ -10,4 +10,6 @@ import createFactory from './createFactory'
  * @param  {object} classes - an object of React classes or strings
  * @return {object}           an object of React element factories
  */
-export default map(createFactory)
+export default function createFactories(obj: object) {
+  return map(createFactory, obj)
+}

@@ -12,7 +12,7 @@
     "doc": "rm -r doc/ && jsdoc -P ./package.json -R ./README.md -d doc/ -r src/",
     "lint": "eslint src/",
     "prepublish": "npm run build",
-    "test": "npm run lint && mocha --compilers js:babel-register \"src/**/*.test.js\""
+    "test": "npm run lint && mocha --compilers ts:ts-node/register \"src/**/*.test.ts\""
   },
   "keywords": [
     "react",
@@ -22,6 +22,9 @@
   "license": "MIT",
   "devDependencies": {
     "@types/classnames": "^2.2.3",
+    "@types/enzyme": "^2.8.9",
+    "@types/expect": "^1.20.2",
+    "@types/mocha": "^2.2.43",
     "@types/ramda": "^0.24.14",
     "@types/react": "^16.0.7",
     "babel-cli": "^6.26.0",
@@ -30,13 +33,14 @@
     "enzyme": "^3.0.0",
     "enzyme-adapter-react-16": "^1.0.0",
     "eslint": "^4.7.2",
-    "expect": "^21.1.0",
+    "expect": "^21.2.1",
     "immutable": "^3.8.1",
     "jsdoc": "^3.5.5",
     "mocha": "^3.5.3",
     "react-dom": "^16.0.0",
     "react-test-renderer": "^16.0.0",
-    "typescript": "^2.5.2"
+    "ts-node": "^3.3.0",
+    "typescript": "^2.5.3"
   },
   "dependencies": {
     "classnames": "^2.2.5",

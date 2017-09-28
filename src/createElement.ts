@@ -1,6 +1,6 @@
 /** @module react-elementary/lib/createElement */
 
-import React, { isValidElement, ComponentClass } from 'react'
+import { createElement as reactCreateElement, isValidElement, ComponentClass } from 'react'
 
 import propsMapper from './propsMapper'
 
@@ -14,8 +14,7 @@ const isNode = (input: string | any[] | ComponentClass) =>
  * @return {function}        createElement with props mapper
  */
 export function mapElementPropsWith(mapper: Function) {
-  return function createElement(type: string | ComponentClass) {
-    const propsOrNode = arguments[1]
+  return function createElement(type: string | ComponentClass, propsOrNode: any, ...nodes: any[]) {
     let props = {}
     let nodeIndex = 2
     if (isNode(propsOrNode)) {
@@ -23,8 +22,7 @@ export function mapElementPropsWith(mapper: Function) {
     } else if (propsOrNode != null) {
       props = mapper(propsOrNode)
     }
-    const nodes = Array.prototype.slice.call(arguments, nodeIndex)
-    return React.createElement(type, props, ...nodes)
+    return reactCreateElement(type, props, ...nodes)
   }
 }
 

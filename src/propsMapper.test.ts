@@ -1,4 +1,4 @@
-import expect from 'expect'
+import expect = require('expect')
 
 import propsMapper from './propsMapper'
 

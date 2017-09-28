@@ -1,9 +1,9 @@
-import expect from 'expect'
+import expect = require('expect')
 
 import { map, toUpper } from 'ramda'
-import React from 'react'
+import { createElement as reactCreateElement } from 'react'
 import { configure, shallow } from 'enzyme'
-import Adapter from 'enzyme-adapter-react-16'
+import Adapter = require('enzyme-adapter-react-16')
 
 import createElement, { mapElementPropsWith } from './createElement'
 
@@ -11,10 +11,10 @@ configure({ adapter: new Adapter() })
 
 describe('createElement', () => {
   it('supports omitting props', () => {
-    const expected = React.createElement(
+    const expected = reactCreateElement(
       'div',
       {},
-      React.createElement('span', {}, 't'),
+      reactCreateElement('span', {}, 't'),
       'est',
     )
     const actual = createElement('div', createElement('span', 't'), 'est')
@@ -22,7 +22,7 @@ describe('createElement', () => {
   })
 
   it('handles undefined props properly', () => {
-    const expected = React.createElement('div', undefined)
+    const expected = reactCreateElement('div', undefined)
     const actual = createElement('div', undefined)
     expect(actual).toEqual(expected)
   })
@@ -39,7 +39,7 @@ describe('createElement', () => {
 describe('mapElementPropsWith', () => {
   it('takes a props mapper, and returns a createElement function', () => {
     const fn = mapElementPropsWith(map(toUpper))
-    const expected = React.createElement('div', { className: 'BAR', id: 'FOO' })
+    const expected = reactCreateElement('div', { className: 'BAR', id: 'FOO' })
     const actual = fn('div', { className: 'bar', id: 'foo' })
     expect(actual).toEqual(expected)
   })

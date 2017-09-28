@@ -1,6 +1,6 @@
-import expect from 'expect'
+import expect = require('expect')
 
-import DOM from 'react-dom-factories'
+import DOM = require('react-dom-factories')
 
 import elements from './elements'
 
