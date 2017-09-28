@@ -1,6 +1,10 @@
 /** @module react-elementary/lib/createElement */
 
-import { createElement as reactCreateElement, isValidElement, ComponentClass } from 'react'
+import {
+  createElement as reactCreateElement,
+  isValidElement,
+  ComponentClass,
+} from 'react'
 
 import propsMapper from './propsMapper'
 
@@ -14,13 +18,15 @@ const isNode = (input: string | any[] | ComponentClass) =>
  * @return {function}        createElement with props mapper
  */
 export function mapElementPropsWith(mapper: Function) {
-  return function createElement(type: string | ComponentClass, propsOrNode: any, ...nodes: any[]) {
+  return function createElement(type: string | ComponentClass, ...args: any[]) {
+    const propsOrNode = args[0]
     let props = {}
-    let nodeIndex = 2
-    if (isNode(propsOrNode)) {
-      nodeIndex = 1
-    } else if (propsOrNode != null) {
-      props = mapper(propsOrNode)
+    let nodes = args
+    if (!isNode(propsOrNode)) {
+      if (propsOrNode != null) {
+        props = mapper(propsOrNode)
+      }
+      nodes = args.slice(1)
     }
     return reactCreateElement(type, props, ...nodes)
   }
