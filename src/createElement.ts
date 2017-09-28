@@ -9,7 +9,7 @@ import {
 import propsMapper from './propsMapper'
 
 const isNode = (input: string | any[] | ComponentClass) =>
-  typeof input == 'string' || Array.isArray(input) || isValidElement(input)
+  typeof input === 'string' || Array.isArray(input) || isValidElement(input)
 
 /**
  * Takes a mapper function and returns a closure which creates React elements
