@@ -10,6 +10,7 @@
   "scripts": {
     "build": "tsc",
     "doc": "rm -r doc/ && jsdoc -P ./package.json -R ./README.md -d doc/ -r src/",
+    "lint": "tslint",
     "prepublish": "npm run build",
     "test": "mocha --compilers ts:ts-node/register \"src/**/*.test.ts\""
   },
@@ -34,6 +35,7 @@
     "react-dom": "^16.0.0",
     "react-test-renderer": "^16.0.0",
     "ts-node": "^3.3.0",
+    "tslint": "^5.7.0",
     "typescript": "^2.5.3"
   },
   "dependencies": {
