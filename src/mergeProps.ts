@@ -40,6 +40,7 @@ const pickNonEmptyArrays = pickBy(prop('length'))
  *                                        objects
  */
 export function createCustomMerge(reducers: IReducers) {
+  const applyReducers = evolve(map(apply, reducers))
   return function mergeProps(...objs: object[]) {
     const merged = mergeAll(objs)
     const keys = Object.keys(reducers)
@@ -47,7 +48,7 @@ export function createCustomMerge(reducers: IReducers) {
       pipe(partialRight(pluck, [objs]), filter(isNotUndefined)),
     )
     const plucked = pluckKeys(keys)
-    const evolved = evolve(map(apply, reducers), pickNonEmptyArrays(plucked))
+    const evolved = applyReducers(pickNonEmptyArrays(plucked))
     return merge(merged, evolved)
   }
 }
