@@ -20,10 +20,6 @@ import {
   zipObj,
 } from 'ramda'
 
-export interface IReducers {
-  [key: string]: (...args: any[]) => any
-}
-
 function isNotUndefined(x: any) {
   return typeof x !== 'undefined'
 }
@@ -39,19 +35,20 @@ const pickNonEmptyArrays = pickBy(prop('length'))
  * @return {function}                   - merges the props of a number of
  *                                        objects
  */
-export function createCustomMerge(reducers: IReducers) {
-  const applyReducers = evolve(map(apply, reducers))
-  const keys = Object.keys(reducers)
-  return function mergeProps(...objs: object[]) {
-    const merged = mergeAll(objs)
-    const pluckKeys = mapKeys(
-      pipe(partialRight(pluck, [objs]), filter(isNotUndefined)),
-    )
-    const plucked = pluckKeys(keys)
-    const evolved = applyReducers(pickNonEmptyArrays(plucked))
-    return merge(merged, evolved)
-  }
-}
+export const createCustomMerge = converge(
+  (applyReducers, keys: string[]) => {
+    return function mergeProps(...objs: object[]) {
+      const merged = mergeAll(objs)
+      const pluckKeys = mapKeys(
+        pipe(partialRight(pluck, [objs]), filter(isNotUndefined)),
+      )
+      const plucked = pluckKeys(keys)
+      const evolved = applyReducers(pickNonEmptyArrays(plucked))
+      return merge(merged, evolved)
+    }
+  },
+  [pipe(map(apply), evolve), Object.keys],
+)
 
 /**
  * Merges a number of objects, applying the classnames library to the className
