@@ -33,9 +33,9 @@ describe('mergeProps', () => {
 describe('createCustomMerge', () => {
   it(`takes a map of reducers, and returns a merge function that applies the
       reducers to the named props, otherwise does a normal merge`, () => {
-    const customReducer = (...args: any[]) => args.join(' ')
+    const customReducer = (...args: any[]) => args
     const customMerge = createCustomMerge({ custom: customReducer })
-    const expected = { custom: 'foo baz quuux', normal: 'quux' }
+    const expected = { custom: ['foo', 'baz', 'quuux'], normal: 'quux' }
     const actual = customMerge(
       { custom: 'foo', normal: 'bar' },
       { custom: 'baz', normal: 'quux' },
