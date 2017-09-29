@@ -24,6 +24,8 @@ function isNotUndefined(x: any) {
   return typeof x !== 'undefined'
 }
 
+const pickNonEmptyArrays = pickBy(prop('length'))
+
 /**
  * Takes a map of reducer function and returns a merge function.
  * @param  {object.<function>} reducers - a map of keys to functions
@@ -39,7 +41,7 @@ export function createCustomMerge(reducers: IReducers) {
     )
     const evolved = evolve(
       map(apply, reducers),
-      pickBy(prop('length'), plucked),
+      pickNonEmptyArrays(plucked),
     )
     return merge(merged, evolved)
   }
