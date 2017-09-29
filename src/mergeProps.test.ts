@@ -20,8 +20,12 @@ describe('mergeProps', () => {
   })
 
   it('applies classnames to the className prop', () => {
-    const expected = { className: classNames('foo', 'bar') }
-    const actual = mergeProps({ className: 'foo' }, { className: 'bar' })
+    const expected = { className: classNames('foo', 'bar', 'baz') }
+    const actual = mergeProps(
+      { className: 'foo' },
+      { className: 'bar' },
+      { className: 'baz' },
+    )
     expect(actual).toEqual(expected)
   })
 })
