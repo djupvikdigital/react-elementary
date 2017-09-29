@@ -1,6 +1,6 @@
 /** @module react-elementary/lib/elements */
 
-import { mapObjIndexed } from 'ramda'
+import { mapObjIndexed, nth, pipe, unapply } from 'ramda'
 import DOM = require('react-dom-factories')
 
 import createFactory from './createFactory'
@@ -10,6 +10,6 @@ import createFactory from './createFactory'
  * @type {object.<function>}
  */
 export default mapObjIndexed(
-  (value: <T>() => any, key: string) => createFactory(key),
+  pipe(unapply(nth(1)), createFactory),
   DOM,
 )
