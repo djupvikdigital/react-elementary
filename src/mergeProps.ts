@@ -2,18 +2,22 @@
 
 import classNames = require('classnames')
 import {
+  append,
   apply,
+  converge,
   evolve,
+  filter,
+  identity,
   map,
-  mapObjIndexed,
   merge,
   mergeAll,
-  nth,
+  partial,
+  partialRight,
   pickBy,
   pipe,
   pluck,
   prop,
-  unapply,
+  zipObj,
 } from 'ramda'
 
 export interface IReducers {
@@ -23,6 +27,9 @@ export interface IReducers {
 function isNotUndefined(x: any) {
   return typeof x !== 'undefined'
 }
+
+const convergeZip = partial(converge, [zipObj])
+const mapKeys = pipe(map, partialRight(append, [[identity]]), convergeZip)
 
 const pickNonEmptyArrays = pickBy(prop('length'))
 
@@ -35,14 +42,11 @@ const pickNonEmptyArrays = pickBy(prop('length'))
 export function createCustomMerge(reducers: IReducers) {
   return function mergeProps(...objs: object[]) {
     const merged = mergeAll(objs)
-    const plucked = mapObjIndexed(
-      pipe(unapply(nth(1)), key => pluck(key, objs).filter(isNotUndefined)),
-      reducers,
-    )
-    const evolved = evolve(
-      map(apply, reducers),
-      pickNonEmptyArrays(plucked),
-    )
+    const keys = Object.keys(reducers)
+    const plucked = mapKeys(
+      pipe(partialRight(pluck, [objs]), filter(isNotUndefined)),
+    )(keys)
+    const evolved = evolve(map(apply, reducers), pickNonEmptyArrays(plucked))
     return merge(merged, evolved)
   }
 }
