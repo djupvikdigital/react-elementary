@@ -1,18 +1,27 @@
 /** @module react-elementary/lib/mergeProps */
 
 import classNames = require('classnames')
-import { mergeWithKey } from 'ramda'
+import {
+  apply,
+  evolve,
+  map,
+  mapObjIndexed,
+  merge,
+  mergeAll,
+  nth,
+  pickBy,
+  pipe,
+  pluck,
+  prop,
+  unapply,
+} from 'ramda'
 
-export interface IReducers { [key: string]: (...args: any[]) => any }
+export interface IReducers {
+  [key: string]: (...args: any[]) => any
+}
 
-function customizeMerges(reducers: IReducers) {
-  return function mergeCustomizer(key: string, ...values: any[]) {
-    const reducer = reducers[key]
-    if (typeof reducer === 'function') {
-      return reducer(...values)
-    }
-    return values[values.length - 1]
-  }
+function isNotUndefined(x: any) {
+  return typeof x !== 'undefined'
 }
 
 /**
@@ -22,9 +31,17 @@ function customizeMerges(reducers: IReducers) {
  *                                        objects
  */
 export function createCustomMerge(reducers: IReducers) {
-  const mergeCustomizer = customizeMerges(reducers)
   return function mergeProps(...objs: object[]) {
-    return objs.reduce(mergeWithKey(mergeCustomizer))
+    const merged = mergeAll(objs)
+    const plucked = mapObjIndexed(
+      pipe(unapply(nth(1)), key => pluck(key, objs).filter(isNotUndefined)),
+      reducers,
+    )
+    const evolved = evolve(
+      map(apply, reducers),
+      pickBy(prop('length'), plucked),
+    )
+    return merge(merged, evolved)
   }
 }
 
