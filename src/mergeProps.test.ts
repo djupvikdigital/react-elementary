@@ -35,10 +35,11 @@ describe('createCustomMerge', () => {
       reducers to the named props, otherwise does a normal merge`, () => {
     const customReducer = (...args: any[]) => args.join(' ')
     const customMerge = createCustomMerge({ custom: customReducer })
-    const expected = { custom: 'foo baz', normal: 'quux' }
+    const expected = { custom: 'foo baz quuux', normal: 'quux' }
     const actual = customMerge(
       { custom: 'foo', normal: 'bar' },
       { custom: 'baz', normal: 'quux' },
+      { custom: 'quuux' },
     )
     expect(actual).toEqual(expected)
   })
