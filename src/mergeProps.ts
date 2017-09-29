@@ -17,7 +17,6 @@ import {
   pipe,
   pluck,
   prop,
-  uncurryN,
   zipObj,
 } from 'ramda'
 
@@ -30,10 +29,7 @@ function isNotUndefined(x: any) {
 }
 
 const convergeZip = partial(converge, [zipObj])
-const mapKeys = uncurryN(
-  2,
-  pipe(map, partialRight(append, [[identity]]), convergeZip),
-)
+const mapKeys = pipe(map, partialRight(append, [[identity]]), convergeZip)
 
 const pickNonEmptyArrays = pickBy(prop('length'))
 
@@ -47,10 +43,10 @@ export function createCustomMerge(reducers: IReducers) {
   return function mergeProps(...objs: object[]) {
     const merged = mergeAll(objs)
     const keys = Object.keys(reducers)
-    const plucked = mapKeys(
+    const pluckKeys = mapKeys(
       pipe(partialRight(pluck, [objs]), filter(isNotUndefined)),
-      keys,
     )
+    const plucked = pluckKeys(keys)
     const evolved = evolve(map(apply, reducers), pickNonEmptyArrays(plucked))
     return merge(merged, evolved)
   }
