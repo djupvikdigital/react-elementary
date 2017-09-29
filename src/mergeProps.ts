@@ -3,7 +3,7 @@
 import classNames = require('classnames')
 import { mergeWithKey } from 'ramda'
 
-export interface IReducers { [key: string]: <T>() => any }
+export interface IReducers { [key: string]: (...args: any[]) => any }
 
 function customizeMerges(reducers: IReducers) {
   return function mergeCustomizer(key: string, ...values: any[]) {
