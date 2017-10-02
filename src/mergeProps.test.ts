@@ -2,7 +2,7 @@ import expect = require('expect')
 
 import classNames = require('classnames')
 
-import mergeProps, { createCustomMerge } from './mergeProps'
+import { createCustomMerge, mergeProps } from './mergeProps'
 
 describe('mergeProps', () => {
   it('merges props objects, values in latter object overriding former', () => {

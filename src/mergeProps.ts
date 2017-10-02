@@ -57,4 +57,4 @@ export const createCustomMerge = converge(
  * @param  {...object} objs - the objects to be merged
  * @return {object}         - the result of the merge
  */
-export default createCustomMerge({ className: classNames })
+export const mergeProps = createCustomMerge({ className: classNames })

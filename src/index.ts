@@ -4,15 +4,9 @@ import { createElement } from './createElement'
 import createFactories from './createFactories'
 import createFactory from './createFactory'
 import elements from './elements'
-import mergeProps from './mergeProps'
+import { mergeProps } from './mergeProps'
 
-export {
-  createElement,
-  createFactories,
-  createFactory,
-  elements,
-  mergeProps,
-}
+export { createElement, createFactories, createFactory, elements, mergeProps }
 
 /**
  * The commonly used modules in one object.
