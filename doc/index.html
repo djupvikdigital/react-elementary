@@ -1,0 +1,289 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>React Elementary</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="assets/js/search.js" data-base=".">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="index.html" class="title">React Elementary</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-externals" checked />
+							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
+							<input type="checkbox" id="tsd-filter-only-exported" />
+							<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<ul class="tsd-breadcrumb">
+				<li>
+					<a href="globals.html">Globals</a>
+				</li>
+			</ul>
+			<h1> React Elementary</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<div class="tsd-panel tsd-typography">
+				<h1 id="react-elementary">React Elementary</h1>
+				<p>React Elementary is a small library of helper functions for creating React
+				elements and handling props using plain JavaScript (no JSX).</p>
+				<p><a href="https://travis-ci.org/thirdhand/react-elementary"><img src="https://travis-ci.org/thirdhand/react-elementary.svg?branch=master" alt="Build Status"></a></p>
+				<h2 id="installation">Installation</h2>
+				<pre><code>npm <span class="hljs-keyword">install</span> react-elementary
+</code></pre><h2 id="usage">Usage</h2>
+				<h3 id="importing">Importing</h3>
+				<pre><code class="lang-javascript"><span class="hljs-keyword">import</span> { createElement } <span class="hljs-keyword">from</span> <span class="hljs-string">'react-elementary'</span>;
+
+createElement(<span class="hljs-string">'div'</span>, <span class="hljs-string">'Hello world!'</span>);
+
+<span class="hljs-comment">// or</span>
+
+<span class="hljs-keyword">import</span> elementary <span class="hljs-keyword">from</span> <span class="hljs-string">'react-elementary'</span>;
+
+elementary.createElement(<span class="hljs-string">'div'</span>, <span class="hljs-string">'Hello world!'</span>);
+
+<span class="hljs-comment">// or</span>
+
+<span class="hljs-keyword">import</span> createElement <span class="hljs-keyword">from</span> <span class="hljs-string">'react-elementary/lib/createElement'</span>;
+
+createElement(<span class="hljs-string">'div'</span>, <span class="hljs-string">'Hello world!'</span>);
+</code></pre>
+				<h3 id="createelement">createElement</h3>
+				<p>Use this function just like <code>React.createElement</code>, except that props are
+					optional. Also, the <code>innerHtml</code> prop is rewritten into
+					<code>dangerouslySetInnerHtml</code>. You can also create a custom <code>createElement</code> which
+					does other props mappings by using <code>mapElementPropsWith</code> from the
+					<code>react-elementary/lib/createElement</code> module (it&#39;s not exported from the index
+				module).</p>
+				<pre><code class="lang-javascript"><span class="hljs-keyword">import</span> { createElement } <span class="hljs-keyword">from</span> <span class="hljs-string">'react-elementary'</span>;
+
+<span class="hljs-keyword">import</span> { OtherReactComponent } <span class="hljs-keyword">from</span> <span class="hljs-string">'./my-other-component'</span>;
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">ReactComponent</span>(<span class="hljs-params">props</span>) </span>{
+  <span class="hljs-keyword">return</span> createElement(
+    <span class="hljs-string">'div'</span>,
+    createElement(OtherReactComponent, props)
+  );
+}
+</code></pre>
+				<h3 id="createfactory">createFactory</h3>
+				<p>Similar to <code>React.createFactory</code>. Creates a factory function for creating
+				multiple elements of the same type.</p>
+				<pre><code class="lang-javascript"><span class="hljs-keyword">import</span> { createFactory } <span class="hljs-keyword">from</span> <span class="hljs-string">'react-elementary'</span>;
+
+<span class="hljs-keyword">const</span> div = createFactory(<span class="hljs-string">'div'</span>);
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">ReactComponent</span>(<span class="hljs-params">props</span>) </span>{
+  <span class="hljs-keyword">return</span> div({ <span class="hljs-attr">className</span>: <span class="hljs-string">'block'</span> }, div(<span class="hljs-string">'Hello world!'</span>));
+}
+</code></pre>
+				<h3 id="createfactories">createFactories</h3>
+				<p>Takes an object of <code>ReactClass</code> or strings, and outputs an object of factory
+				functions.</p>
+				<pre><code class="lang-javascript"><span class="hljs-keyword">import</span> { createFactories } <span class="hljs-keyword">from</span> <span class="hljs-string">'react-elementary'</span>;
+
+<span class="hljs-keyword">import</span> myReactComponents <span class="hljs-keyword">from</span> <span class="hljs-string">'./my-components'</span>
+
+<span class="hljs-keyword">const</span> factories = createFactories(myReactComponents);
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">ReactComponent</span>(<span class="hljs-params">props</span>) </span>{
+  <span class="hljs-keyword">return</span> factories.myComponent(props, factories.myOtherComponent());
+}
+</code></pre>
+				<h3 id="elements">elements</h3>
+				<p>An object of common element factories, just like <code>React.DOM</code>.</p>
+				<pre><code class="lang-javascript"><span class="hljs-keyword">import</span> { elements } <span class="hljs-keyword">from</span> <span class="hljs-string">'react-elementary'</span>;
+
+<span class="hljs-keyword">const</span> { div, em, h1, p } = elements;
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">ReactComponent</span>(<span class="hljs-params">props</span>) </span>{
+  <span class="hljs-keyword">return</span> div(
+    h1(<span class="hljs-string">'Headline'</span>),
+    p(<span class="hljs-string">'Paragraph.'</span>),
+    p(em(<span class="hljs-string">'Another'</span>), <span class="hljs-string">' paragraph'</span>)
+  );
+}
+</code></pre>
+				<h3 id="mapintoarray">mapIntoArray</h3>
+				<p>Takes an iterable collection (like <code>Immutable.List</code>), and a mapping function,
+				returning an array.</p>
+				<p><em>This is deprecated and will be removed in a later version.</em> It&#39;s not really
+				needed since React can handle non-array iterables.</p>
+				<pre><code class="lang-javascript"><span class="hljs-keyword">import</span> { createFactory, elements, mapIntoArray } <span class="hljs-keyword">from</span> <span class="hljs-string">'react-elementary'</span>;
+
+<span class="hljs-keyword">import</span> { myArticleComponent }
+
+<span class="hljs-keyword">const</span> Article = createFactory(myArticleComponent);
+<span class="hljs-keyword">const</span> { div } = elements;
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">ReactComponent</span>(<span class="hljs-params">props</span>) </span>{
+  <span class="hljs-keyword">return</span> div(
+    <span class="hljs-comment">// props.articles is actually an Immutable.List, but the component doesn't</span>
+    <span class="hljs-comment">// need to know this</span>
+    mapIntoArray(props.articles, item =&gt; Article(item));
+  );
+}
+</code></pre>
+				<h3 id="mergeprops">mergeProps</h3>
+				<p>Takes any number of objects, and merges them. The default function merges the
+					<code>className</code> property with the <code>classnames</code> module. You can also create a custom
+					merge function by using <code>createCustomMerge</code> from the
+				<code>react-elementary/lib/mergeProps</code> module.</p>
+				<pre><code class="lang-javascript"><span class="hljs-keyword">import</span> { elements, mergeProps } <span class="hljs-keyword">from</span> <span class="hljs-string">'react-elementary'</span>;
+
+<span class="hljs-keyword">const</span> { div } = elements;
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">ReactComponent</span>(<span class="hljs-params">props</span>) </span>{
+  <span class="hljs-comment">// If the provided props are { className: 'foo', id: 'foo' }</span>
+  <span class="hljs-keyword">return</span> div(mergeProps(props, { <span class="hljs-attr">className</span>: <span class="hljs-string">'bar'</span>, <span class="hljs-attr">id</span>: <span class="hljs-string">'bar'</span> }));
+  <span class="hljs-comment">// then the returned element has the props { className: 'foo bar', id: 'bar' }</span>
+}
+</code></pre>
+				<h2 id="legal">Legal</h2>
+				<p>Copyright © 2016 Reidar Djupvik</p>
+				<p>Licensed under the MIT license. See the <code>LICENSE</code> file for details.</p>
+			</div>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class="globals  ">
+						<a href="globals.html"><em>Globals</em></a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_createelement_.html">"create<wbr>Element"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_createfactories_.html">"create<wbr>Factories"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_createfactory_.html">"create<wbr>Factory"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_elements_.html">"elements"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_index_.html">"index"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_mergeprops_.html">"merge<wbr>Props"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_propsmapper_.html">"props<wbr>Mapper"</a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-module"><span class="tsd-kind-icon">Module</span></li>
+				<li class="tsd-kind-object-literal"><span class="tsd-kind-icon">Object literal</span></li>
+				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
+				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
+				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
+				<li class="tsd-kind-index-signature"><span class="tsd-kind-icon">Index signature</span></li>
+				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
+				<li class="tsd-kind-enum-member"><span class="tsd-kind-icon">Enumeration member</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-enum"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-enum"><span class="tsd-kind-icon">Method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
+				<li class="tsd-kind-interface tsd-has-type-parameter"><span class="tsd-kind-icon">Interface with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-interface"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-interface"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-interface"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
+				<li class="tsd-kind-class tsd-has-type-parameter"><span class="tsd-kind-icon">Class with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class"><span class="tsd-kind-icon">Accessor</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-class"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static property</span></li>
+				<li class="tsd-kind-call-signature tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static method</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="assets/js/main.js"></script>
+<script>if (location.protocol == 'file:') document.write('<script src="assets/js/search.js"><' + '/script>');</script>
+</body>
+</html>
