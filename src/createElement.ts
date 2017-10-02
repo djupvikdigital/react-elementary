@@ -52,4 +52,4 @@ export function mapElementPropsWith(mapper: PropsMapper) {
  * @param  {...(string|ReactElement|Array.<(string|ReactElement)>)} nodes
  * @return {ReactElement} - the created React element
  */
-export default mapElementPropsWith(propsMapper)
+export const createElement = mapElementPropsWith(propsMapper)

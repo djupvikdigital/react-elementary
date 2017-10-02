@@ -2,7 +2,7 @@
 
 import { ReactNode, ReactType } from 'react'
 
-import createElement, { PropsOrNode } from './createElement'
+import { createElement, PropsOrNode } from './createElement'
 
 /**
  * A function that binds createElement with a ReactType.

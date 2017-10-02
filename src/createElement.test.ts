@@ -5,7 +5,7 @@ import Adapter = require('enzyme-adapter-react-16')
 import { map, toUpper } from 'ramda'
 import { createElement as reactCreateElement } from 'react'
 
-import createElement, { mapElementPropsWith } from './createElement'
+import { createElement, mapElementPropsWith } from './createElement'
 
 configure({ adapter: new Adapter() })
 
