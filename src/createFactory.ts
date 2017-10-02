@@ -1,12 +1,15 @@
 /** @module react-elementary/lib/createFactory */
 
-import createElement from './createElement'
+import { ReactNode, ReactType } from 'react'
+
+import createElement, { PropsOrNode } from './createElement'
 
 /**
- * A function that binds a number of arguments to createElement.
- * @param  {*} ...args - the arguments to bind
- * @return {function}    a createElement function with bound arguments
+ * A function that binds createElement with a ReactType.
+ * @param  {ReactType} type - the component type
+ * @return {function}         a createElement function with bound type
  */
-export default function createFactory(...args: any[]) {
-  return createElement.bind(null, ...args)
+export default function createFactory(type: ReactType) {
+  return (propsOrNode: PropsOrNode, ...args: ReactNode[]) =>
+    createElement(type, propsOrNode, ...args)
 }

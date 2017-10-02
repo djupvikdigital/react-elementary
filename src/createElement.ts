@@ -10,6 +10,8 @@ import {
 
 import propsMapper, { PropsMapper } from './propsMapper'
 
+export type PropsOrNode = ReactNode | object
+
 const isNode = (input: ReactNode): input is ReactNode =>
   input == null ||
   typeof input === 'string' ||
@@ -26,7 +28,7 @@ const isNode = (input: ReactNode): input is ReactNode =>
 export function mapElementPropsWith(mapper: PropsMapper) {
   return function createElement(
     type: ReactType,
-    propsOrNode: ReactNode | object,
+    propsOrNode: PropsOrNode,
     ...args: ReactNode[],
   ): ReactElement<any> {
     let props = {}
