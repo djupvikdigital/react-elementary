@@ -1,6 +1,6 @@
 /** @module react-elementary */
 
-import createElement from './createElement'
+import { createElement } from './createElement'
 import createFactories from './createFactories'
 import createFactory from './createFactory'
 import elements from './elements'
