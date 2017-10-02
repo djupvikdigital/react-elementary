@@ -1,6 +1,6 @@
 import expect = require('expect')
 
-import propsMapper from './propsMapper'
+import { propsMapper } from './propsMapper'
 
 describe('propsMapper', () => {
   it('changes innerHtml prop to dangerouslySetInnerHTML', () => {

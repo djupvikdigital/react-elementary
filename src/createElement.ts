@@ -8,7 +8,7 @@ import {
   ReactType,
 } from 'react'
 
-import propsMapper, { PropsMapper } from './propsMapper'
+import { propsMapper, PropsMapper } from './propsMapper'
 
 export type PropsOrNode = ReactNode | object
 

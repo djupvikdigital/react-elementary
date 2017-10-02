@@ -11,7 +11,7 @@ export type PropsMapper = (props: object) => object
  * @param    {object} props - the props to be mapped
  * @return   {object}         the mapped props object
  */
-export default when(
+export const propsMapper = when(
   has('innerHtml'),
   over(
     lens(
