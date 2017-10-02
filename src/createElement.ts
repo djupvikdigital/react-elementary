@@ -1,15 +1,21 @@
 /** @module react-elementary/lib/createElement */
 
 import {
-  ComponentClass,
   createElement as reactCreateElement,
   isValidElement,
+  ReactElement,
+  ReactNode,
+  ReactType,
 } from 'react'
 
 import propsMapper, { PropsMapper } from './propsMapper'
 
-const isNode = (input: string | any[] | ComponentClass) =>
-  typeof input === 'string' || Array.isArray(input) || isValidElement(input)
+const isNode = (input: ReactNode): input is ReactNode =>
+  input == null ||
+  typeof input === 'string' ||
+  typeof input === 'number' ||
+  Array.isArray(input) ||
+  isValidElement(input)
 
 /**
  * Takes a mapper function and returns a closure which creates React elements
@@ -18,15 +24,18 @@ const isNode = (input: string | any[] | ComponentClass) =>
  * @return {function}        createElement with props mapper
  */
 export function mapElementPropsWith(mapper: PropsMapper) {
-  return function createElement(type: string | ComponentClass, ...args: any[]) {
-    const propsOrNode = args[0]
+  return function createElement(
+    type: ReactType,
+    propsOrNode: ReactNode | object,
+    ...args: ReactNode[],
+  ): ReactElement<any> {
     let props = {}
-    let nodes = args
+    let nodes = [propsOrNode, ...args]
     if (!isNode(propsOrNode)) {
       if (propsOrNode != null) {
         props = mapper(propsOrNode)
       }
-      nodes = args.slice(1)
+      nodes = args
     }
     return reactCreateElement(type, props, ...nodes)
   }
