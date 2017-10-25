@@ -10,9 +10,10 @@
   },
   "scripts": {
     "build": "gulp",
+    "clean": "rm -f lib/*",
     "doc": "rm -rf doc/* && typedoc --exclude \"**/*.test.ts\" --mode modules --name \"React Elementary\" --readme ./README.md --target ES5 --module commonjs --out doc/ src/index.ts",
     "lint": "tslint --project tsconfig.json",
-    "prepublish": "npm run build",
+    "prepublish": "npm run clean && npm run build",
     "test": "mocha --compilers ts:ts-node/register \"src/**/*.test.ts\""
   },
   "keywords": [
