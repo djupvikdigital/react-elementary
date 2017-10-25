@@ -2,3 +2,6 @@
 /src
 .*
 *.test.js
+gulpfile.js
+tsconfig.json
+tslint.json
