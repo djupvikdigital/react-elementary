@@ -145,25 +145,7 @@ createElement(<span class="hljs-string">'div'</span>, <span class="hljs-string">
 }
 </code></pre>
 				<h3 id="mapintoarray">mapIntoArray</h3>
-				<p>Takes an iterable collection (like <code>Immutable.List</code>), and a mapping function,
-				returning an array.</p>
-				<p><em>This is deprecated and will be removed in a later version.</em> It&#39;s not really
-				needed since React can handle non-array iterables.</p>
-				<pre><code class="lang-javascript"><span class="hljs-keyword">import</span> { createFactory, elements, mapIntoArray } <span class="hljs-keyword">from</span> <span class="hljs-string">'react-elementary'</span>;
-
-<span class="hljs-keyword">import</span> { myArticleComponent }
-
-<span class="hljs-keyword">const</span> Article = createFactory(myArticleComponent);
-<span class="hljs-keyword">const</span> { div } = elements;
-
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">ReactComponent</span>(<span class="hljs-params">props</span>) </span>{
-  <span class="hljs-keyword">return</span> div(
-    <span class="hljs-comment">// props.articles is actually an Immutable.List, but the component doesn't</span>
-    <span class="hljs-comment">// need to know this</span>
-    mapIntoArray(props.articles, item =&gt; Article(item));
-  );
-}
-</code></pre>
+				<p>This method is removed as of version 2.0.0</p>
 				<h3 id="mergeprops">mergeProps</h3>
 				<p>Takes any number of objects, and merges them. The default function merges the
 					<code>className</code> property with the <code>classnames</code> module. You can also create a custom
@@ -180,7 +162,7 @@ createElement(<span class="hljs-string">'div'</span>, <span class="hljs-string">
 }
 </code></pre>
 				<h2 id="legal">Legal</h2>
-				<p>Copyright © 2016 Reidar Djupvik</p>
+				<p>Copyright © 2017 Reidar Djupvik</p>
 				<p>Licensed under the MIT license. See the <code>LICENSE</code> file for details.</p>
 			</div>
 		</div>
