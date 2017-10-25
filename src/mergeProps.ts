@@ -1,6 +1,6 @@
 /** @module react-elementary/lib/mergeProps */
 
-import classNames = require('classnames')
+import * as classNames from 'classnames'
 import {
   append,
   apply,

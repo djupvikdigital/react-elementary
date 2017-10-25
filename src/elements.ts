@@ -1,7 +1,7 @@
 /** @module react-elementary/lib/elements */
 
 import { mapObjIndexed, nth, pipe, unapply } from 'ramda'
-import DOM = require('react-dom-factories')
+import * as DOM from 'react-dom-factories'
 
 import createFactory from './createFactory'
 
