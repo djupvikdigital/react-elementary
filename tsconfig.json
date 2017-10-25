@@ -10,7 +10,7 @@
     "noImplicitAny": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "target": "es5",
+    "target": "es2017",
     "types": [
       "mocha",
       "node"
@@ -25,5 +25,8 @@
   },
   "include": [
     "src/*"
+  ],
+  "exclude": [
+    "**/*.test.ts"
   ]
 }
