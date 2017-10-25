@@ -107,28 +107,7 @@ function ReactComponent(props) {
 
 ### mapIntoArray
 
-Takes an iterable collection (like `Immutable.List`), and a mapping function,
-returning an array.
-
-*This is deprecated and will be removed in a later version.* It's not really
-needed since React can handle non-array iterables.
-
-```javascript
-import { createFactory, elements, mapIntoArray } from 'react-elementary';
-
-import { myArticleComponent }
-
-const Article = createFactory(myArticleComponent);
-const { div } = elements;
-
-function ReactComponent(props) {
-  return div(
-    // props.articles is actually an Immutable.List, but the component doesn't
-    // need to know this
-    mapIntoArray(props.articles, item => Article(item));
-  );
-}
-```
+This method is removed as of version 2.0.0
 
 ### mergeProps
 
@@ -151,6 +130,6 @@ function ReactComponent(props) {
 
 ## Legal
 
-Copyright © 2016 Reidar Djupvik
+Copyright © 2017 Reidar Djupvik
 
 Licensed under the MIT license. See the `LICENSE` file for details.
