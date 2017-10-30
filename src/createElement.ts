@@ -28,7 +28,7 @@ const isNode = (input: ReactNode): input is ReactNode =>
 export function mapElementPropsWith(mapper: PropsMapper) {
   return function createElement(
     type: ReactType,
-    propsOrNode: PropsOrNode,
+    propsOrNode?: PropsOrNode,
     ...args: ReactNode[],
   ): ReactElement<any> {
     let props = {}
