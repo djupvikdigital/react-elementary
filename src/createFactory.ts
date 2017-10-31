@@ -10,6 +10,6 @@ import { createElement, PropsOrNode } from './createElement'
  * @return {function}         a createElement function with bound type
  */
 export default function createFactory(type: ReactType) {
-  return (propsOrNode: PropsOrNode, ...args: ReactNode[]) =>
+  return (propsOrNode?: PropsOrNode, ...args: ReactNode[]) =>
     createElement(type, propsOrNode, ...args)
 }
